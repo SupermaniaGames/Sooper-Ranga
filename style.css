@@ -8,7 +8,7 @@ body{font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;color:#fff;displ
 .ov{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;gap:4vw;padding:calc(env(safe-area-inset-top) + 8px) calc(env(safe-area-inset-right) + 16px) calc(env(safe-area-inset-bottom) + 8px) calc(env(safe-area-inset-left) + 16px);
  background:radial-gradient(circle,#ffffff0d 5px,transparent 6px) 0 0/46px 46px,linear-gradient(160deg,#0d1b3e,#1a2b56 60%,#12306e)}
 .ov.dim{background:#000b;z-index:70}
-#logo{width:min(44vw,360px);max-height:80dvh;object-fit:contain;background:#fff;border-radius:24px;padding:6px;box-shadow:0 8px 24px #0006,0 0 0 4px var(--gold);animation:bob 3s ease-in-out infinite alternate}
+#logo{width:min(44vw,360px);max-height:80dvh;object-fit:contain;filter:drop-shadow(0 8px 14px #0008);animation:bob 3s ease-in-out infinite alternate}
 @keyframes bob{to{transform:translateY(-6px)}}
 .btns,.stack{display:flex;flex-direction:column;gap:10px;width:min(40vw,300px)}
 .credit{font-size:.8rem;text-align:center;opacity:.9}

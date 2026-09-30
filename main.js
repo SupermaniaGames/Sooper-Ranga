@@ -147,7 +147,10 @@ let LV = null;
 const tileAt = (tx, ty) => tx < 0 || tx >= LV.w ? '#' : (ty < 0 || ty >= LV.h) ? '.' : LV.rows[ty][tx];
 const solid = (tx, ty) => SOLID.has(tileAt(tx, ty));
 async function loadLevel(url) {
-  const j = await (await fetch(url, { cache: 'no-store' })).json();
+  let res = await fetch(url, { cache: 'no-store' });
+  if (!res.ok && url.startsWith('levels/')) res = await fetch(url.slice(7), { cache: 'no-store' }); // fallback: level file next to index.html
+  if (!res.ok) throw new Error(url + ' -> HTTP ' + res.status);
+  const j = await res.json();
   const rows = j.rows.map(r => r.split('')); let start = { x: 2, y: 2 };
   rows.forEach((r, y) => r.forEach((c, x) => { if (c === 'P') { start = { x, y }; r[x] = '.'; } }));
   LV = { name: j.name, theme: j.theme, rows, w: rows[0].length, h: rows.length, start, url };
@@ -313,7 +316,7 @@ requestAnimationFrame(frame);
 function show(id, on) { $(id).hidden = !on; }
 async function startLevel(url) {
   audioInit();
-  try { await loadLevel(url); } catch (e) { alert('Could not load level. If you opened the file directly, run it from a web server or GitHub Pages.'); return; }
+  try { await loadLevel(url); } catch (e) { alert('Could not load the level (' + e.message + '). Make sure the levels folder with test.json is uploaded next to index.html.'); return; }
   resetPlayer(); paused = false; state = 'play';
   show('#home', false); show('#pause', false); show('#pausebtn', true); clearInput();
   try { const el = document.documentElement; if (el.requestFullscreen && matchMedia('(pointer:coarse)').matches && !document.fullscreenElement) el.requestFullscreen().catch(() => {}); if (screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(() => {}); } catch (e) {}
