@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Sooper Ranga</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0d1b3e">
+<link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div id="splash"><img src="splash.png" alt="" onerror="this.parentNode.remove()"></div>
+<script>setTimeout(function(){var s=document.getElementById('splash');if(s)s.remove()},2500)</script>
+
+<canvas id="c" aria-label="Game"></canvas>
+
+<section id="home" class="ov">
+ <img id="logo" src="home-logo.png" alt="Sooper Ranga">
+ <div class="btns">
+  <button class="btn p" id="play">Play test level</button>
+  <button class="btn" id="shareapp">📤 Share app</button>
+  <button class="btn" id="install" hidden>⬇ Install app</button>
+  <p class="credit">Made by <b>Supermania Games</b> · Presented by <b>Boring Games</b></p>
+ </div>
+</section>
+
+<button id="pausebtn" class="round" aria-label="Pause" hidden>❚❚</button>
+<button id="mute" class="round" aria-label="Sound on or off">🔊</button>
+
+<div id="touch" hidden>
+ <div id="dpad" aria-label="Move"><span class="ar">◀</span><span class="ar">▶</span></div>
+ <div id="acts">
+  <button class="tb" data-k="run" aria-label="Run">RUN</button>
+  <button class="tb big" data-k="jump" aria-label="Jump">JUMP</button>
+ </div>
+</div>
+
+<section id="pause" class="ov dim" hidden>
+ <div class="rbox">
+  <div class="rtitle">Paused</div>
+  <div class="stack">
+   <button class="btn p" id="resume">Resume</button>
+   <button class="btn" id="restart">Restart level</button>
+   <button class="btn" id="tomenu">Menu</button>
+  </div>
+ </div>
+</section>
+
+<section id="dlg" class="ov dim" hidden>
+ <div class="rbox">
+  <div class="rtitle">Are you sure?</div>
+  <p id="dp"></p>
+  <div class="rbtns"><button class="btn" id="dno">Stay</button><button class="btn p" id="dyes">Leave</button></div>
+ </div>
+</section>
+
+<div id="rotate"><div>📱↻<br>Turn your phone sideways to play</div></div>
+
+<script type="module" src="main.js"></script>
+</body></html>

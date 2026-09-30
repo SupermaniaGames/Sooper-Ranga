@@ -1,0 +1,17 @@
+{
+ "id": "sooper-ranga-platformer",
+ "name": "Sooper Ranga",
+ "short_name": "Sooper Ranga",
+ "description": "A village-to-temple platform adventure. Made by Supermania Games, presented by Boring Games.",
+ "start_url": "./?source=pwa",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "landscape",
+ "background_color": "#0d1b3e",
+ "theme_color": "#0d1b3e",
+ "icons": [
+  {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+  {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+  {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+ ]
+}

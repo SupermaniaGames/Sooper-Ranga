@@ -1,0 +1,48 @@
+:root{--gold:#ffc21a;--navy:#0b2f86;--ink:#14286b;--night:#0d1b3e}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+[hidden]{display:none!important}
+html,body{height:100%;overflow:hidden;background:var(--night);touch-action:none;overscroll-behavior:none}
+body{font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;color:#fff;display:flex;align-items:center;justify-content:center}
+#c{width:min(100vw,calc(100dvh*400/224));aspect-ratio:400/224;height:auto;image-rendering:pixelated;image-rendering:crisp-edges;image-rendering:pixelated;display:block;background:#6ec6ff}
+
+.ov{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;gap:4vw;padding:calc(env(safe-area-inset-top) + 8px) calc(env(safe-area-inset-right) + 16px) calc(env(safe-area-inset-bottom) + 8px) calc(env(safe-area-inset-left) + 16px);
+ background:radial-gradient(circle,#ffffff0d 5px,transparent 6px) 0 0/46px 46px,linear-gradient(160deg,#0d1b3e,#1a2b56 60%,#12306e)}
+.ov.dim{background:#000b;z-index:70}
+#logo{width:min(44vw,360px);max-height:80dvh;object-fit:contain;background:#fff;border-radius:24px;padding:6px;box-shadow:0 8px 24px #0006,0 0 0 4px var(--gold);animation:bob 3s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-6px)}}
+.btns,.stack{display:flex;flex-direction:column;gap:10px;width:min(40vw,300px)}
+.credit{font-size:.8rem;text-align:center;opacity:.9}
+
+.btn{font:inherit;font-weight:900;color:#fff;border:3px solid var(--gold);border-radius:14px;padding:11px 16px;background:linear-gradient(#1a54d0,#0b2f86);text-shadow:0 2px 0 #0007;cursor:pointer;width:100%;box-shadow:0 4px 0 #0005}
+.btn.p{background:linear-gradient(#ffd54a,#f5a800);color:var(--ink);text-shadow:none}
+.btn:active{transform:translateY(2px)}
+button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+
+.round{position:fixed;top:calc(env(safe-area-inset-top) + 8px);z-index:80;width:42px;height:42px;border-radius:50%;border:3px solid var(--gold);background:#0b2f86d9;color:#fff;font-size:1.1rem;cursor:pointer}
+#pausebtn{left:calc(env(safe-area-inset-left) + 10px)}
+#mute{right:calc(env(safe-area-inset-right) + 10px)}
+
+.rbox{width:min(92vw,380px);background:linear-gradient(#123a92,#071a55);border:4px solid var(--gold);border-radius:20px;padding:16px;box-shadow:0 0 30px #ffc21a88;text-align:center}
+.rtitle{font-size:1.7rem;font-weight:900;color:#ffd54a;text-shadow:0 3px 0 #7a4b00,0 0 12px #ffc21a88;margin-bottom:10px}
+.rbox .stack{width:100%}
+.rbtns{display:flex;gap:10px;margin-top:14px}.rbtns .btn{flex:1;width:auto}
+
+/* touch controls */
+#touch{position:fixed;inset:0;z-index:40;pointer-events:none}
+#touch>*{pointer-events:auto}
+#dpad{position:absolute;left:calc(env(safe-area-inset-left) + 14px);bottom:calc(env(safe-area-inset-bottom) + 12px);width:clamp(170px,32vw,250px);height:clamp(76px,24vh,104px);
+ display:flex;justify-content:space-between;align-items:center;padding:0 18px;border-radius:60px;border:3px solid #ffc21a99;background:#0b2f8680;font-size:2rem;touch-action:none}
+#dpad.l .ar:first-child,#dpad.r .ar:last-child{color:var(--gold);transform:scale(1.25)}
+#dpad .ar{color:#ffffffcc;transition:transform .05s}
+#acts{position:absolute;right:calc(env(safe-area-inset-right) + 14px);bottom:calc(env(safe-area-inset-bottom) + 12px);display:flex;align-items:flex-end;gap:14px}
+.tb{font:inherit;font-weight:900;width:clamp(66px,17vh,84px);height:clamp(66px,17vh,84px);border-radius:50%;border:3px solid var(--gold);background:#0b2f86b3;color:#fff;font-size:.85rem;touch-action:none}
+.tb.big{width:clamp(84px,24vh,108px);height:clamp(84px,24vh,108px);background:#f5a800c0;color:var(--ink);font-size:1rem}
+.tb.on{background:var(--gold);color:var(--ink);transform:scale(.94)}
+
+#splash{position:fixed;inset:0;z-index:100;background:var(--night);transition:opacity .5s}
+#splash img{width:100%;height:100%;object-fit:cover;display:block}
+
+#rotate{display:none;position:fixed;inset:0;z-index:200;background:var(--night);align-items:center;justify-content:center;text-align:center;font-size:1.4rem;font-weight:800;line-height:1.8}
+@media (orientation:portrait) and (pointer:coarse){#rotate{display:flex}}
+@media (max-height:420px){.ov{gap:3vw}.btn{padding:8px 12px}.btns{gap:7px}.rtitle{font-size:1.4rem}}
+@media (prefers-reduced-motion:reduce){#logo{animation:none}}
