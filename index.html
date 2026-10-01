@@ -13,14 +13,27 @@
 <canvas id="c" aria-label="Game"></canvas>
 
 <section id="home" class="ov">
+ <div id="who"></div>
  <img id="logo" src="home-logo.png" alt="Sooper Ranga">
  <div class="btns">
-  <button class="btn p" id="play">Play test level</button>
+  <button class="btn p" id="play">Play</button>
+  <button class="btn" id="btnlb" hidden>🏆 Leaderboard</button>
+  <button class="btn" id="btnacct" hidden>☁ Sign in</button>
   <button class="btn" id="shareapp">📤 Share app</button>
   <button class="btn" id="install" hidden>⬇ Install app</button>
-  <p class="credit">Made by <b>Supermania Games</b> · Presented by <b>Boring Games</b></p>
  </div>
+ <p class="credit">Made by <b>Supermania Games</b> · Presented by <b>Boring Games</b></p>
 </section>
+
+<section id="map" class="ov mapov" hidden>
+ <div class="maphead"><button class="btn sm" id="mapback">◀ Back</button><h2>Choose a level</h2></div>
+ <div id="mapbox"></div>
+</section>
+
+<div id="hud" hidden>
+ <div id="hrow"><span id="hl"></span><span id="hc"></span><span id="hs"></span><span id="ht"></span><span id="hp"></span></div>
+ <div id="hn"></div>
+</div>
 
 <button id="pausebtn" class="round" aria-label="Pause" hidden>❚❚</button>
 <button id="mute" class="round" aria-label="Sound on or off">🔊</button>
@@ -34,25 +47,43 @@
 </div>
 
 <section id="pause" class="ov dim" hidden>
- <div class="rbox">
-  <div class="rtitle">Paused</div>
-  <div class="stack">
-   <button class="btn p" id="resume">Resume</button>
-   <button class="btn" id="restart">Restart level</button>
-   <button class="btn" id="tomenu">Menu</button>
-  </div>
+ <div class="rbox"><div class="rtitle">Paused</div>
+  <div class="stack"><button class="btn p" id="resume">Resume</button><button class="btn" id="restart">Restart level</button><button class="btn" id="tomenu">Level map</button></div>
  </div>
 </section>
 
-<section id="dlg" class="ov dim" hidden>
- <div class="rbox">
-  <div class="rtitle">Are you sure?</div>
-  <p id="dp"></p>
-  <div class="rbtns"><button class="btn" id="dno">Stay</button><button class="btn p" id="dyes">Leave</button></div>
- </div>
+<section id="dlg" class="ov dim" hidden style="z-index:90">
+ <div class="rbox"><div class="rtitle">Are you sure?</div><p id="dp"></p>
+  <div class="rbtns"><button class="btn" id="dno">Stay</button><button class="btn p" id="dyes">Leave</button></div></div>
+</section>
+
+<section id="result" class="ov dim" hidden>
+ <div id="confetti"></div>
+ <div class="rbox"><div class="rtitle" id="rt">Level clear!</div><div class="rsub" id="rsub"></div><div id="rlist"></div>
+  <div class="rbtns"><button class="btn" id="rmenu">Levels</button><button class="btn" id="rshare" aria-label="Share">📤</button><button class="btn" id="rreplay">Replay</button><button class="btn p" id="rnext">Next</button></div></div>
+</section>
+
+<section id="gameover" class="ov dim" hidden>
+ <div class="rbox"><div class="rtitle">Game over</div><p>Out of lives. Ranga needs another try!</p>
+  <div class="rbtns"><button class="btn" id="gmenu">Level map</button><button class="btn p" id="gretry">Try again</button></div></div>
+</section>
+
+<section id="auth" class="ov dim" hidden>
+ <div class="rbox"><div class="rtitle">Sign in</div>
+  <div class="stack">
+   <input id="au" placeholder="Username" maxlength="14" autocomplete="username" autocapitalize="off">
+   <input id="ap" type="password" placeholder="Password (6+ characters)" autocomplete="current-password">
+   <button class="btn p" id="asignin">Sign in</button><button class="btn" id="asignup">Create account</button><button class="btn" id="aguest">Play as guest</button>
+   <p class="err" id="aerr"></p><button class="btn" id="aclose">Close</button>
+  </div></div>
+</section>
+
+<section id="lb" class="ov dim" hidden>
+ <div class="rbox"><div class="rtitle">Leaderboard</div>
+  <select id="lbsel"></select><div id="lblist"></div>
+  <div class="rbtns"><button class="btn" id="lbclose">Close</button></div></div>
 </section>
 
 <div id="rotate"><div>📱↻<br>Turn your phone sideways to play</div></div>
-
 <script type="module" src="main.js"></script>
 </body></html>
